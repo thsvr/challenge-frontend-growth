@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import Form from '../components/form';
+import { StyledContainer, StyledText } from '../globalStyles/GlobalStyles';
 import { useFetch } from '../hooks/useFetch';
 import { dataFormatter } from '../utils/dataFormatter';
 
@@ -23,6 +25,10 @@ function Homepage() {
     return (
         <Container>
             <Header>Metric Dashboard</Header>
+            <StyledContainer margin="0 0 20px 0">
+                <StyledText>Include the amount of views or clicks below</StyledText>
+                <Form />
+            </StyledContainer>
         </Container>
     );
 }
