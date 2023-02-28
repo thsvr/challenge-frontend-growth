@@ -24,15 +24,15 @@ export const dataFormatter = (data: any, type: string) => {
         let clicksLength = 0;
 
         group.metrics.map((item: any) => {
-            if (item.name === 'click') {
+            if (item.name === 'Clicks') {
                 sumClick += item.value;
             }
-            if (item.name === 'view') {
+            if (item.name === 'Views') {
                 sumViews += item.value;
             }
 
-            viewsLength = group.metrics.filter((item: any) => item.name === 'view').length;
-            clicksLength = group.metrics.filter((item: any) => item.name === 'click').length;
+            viewsLength = group.metrics.filter((item: any) => item.name === 'Views').length;
+            clicksLength = group.metrics.filter((item: any) => item.name === 'Clicks').length;
         });
 
         return {
