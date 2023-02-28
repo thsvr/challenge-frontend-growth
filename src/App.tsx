@@ -1,12 +1,12 @@
 import React from 'react';
-import { useFetch } from './hooks/useFetch';
-import { dataFormatter } from './utils/dataFormatter';
+import Homepage from './pages/Homepage';
 
 function App() {
-    const { response } = useFetch('http://localhost:3000/api/v1/metrics');
-    const defaultData = response && dataFormatter(response, 'minute');
-    console.log('data formatted:', defaultData);
-    return <div className="App">test</div>;
+    return (
+        <div className="App">
+            <Homepage />
+        </div>
+    );
 }
 
 export default App;
