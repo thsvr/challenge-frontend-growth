@@ -37,7 +37,7 @@ export const dataFormatter = (data: any, type: string) => {
 
         return {
             ...group,
-            click: clicksLength === 0 || sumClick === 0 ? 0 : Math.floor(sumClick / clicksLength),
+            clicks: clicksLength === 0 || sumClick === 0 ? 0 : Math.floor(sumClick / clicksLength),
             views: viewsLength === 0 || sumViews === 0 ? 0 : Math.floor(sumViews / viewsLength),
         };
     });
