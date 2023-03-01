@@ -1,4 +1,4 @@
-# Factorial - Growth Challenge
+# Welcome to Factorial Growth Challenge
 
 ## Overview
 
@@ -18,7 +18,7 @@ The metrics will be shown in a timeline and show averages per minute/hour/day an
 
 **Before running this repo make sure the [backend](https://github.com/thsvr/challenge-backend-growth) is alrealy running.**
 
-In the project directory, you can run:
+**Clone this repo** and in the project directory you can run:
 
 ### `npm i`
 
@@ -40,6 +40,10 @@ Shows prettier and eslint warnings and errors.
 ### `npm lint:fix`
 
 Fix prettier and eslint warnings and errors when possible.
+
+## 👌 Features
+- Post data by choosing a metric (view or click), a date with time, and a metric number.
+- Visualize data (views and clicks) in a graph in 3 formats (minute, hour, day).
 
 ## Technologies
 
