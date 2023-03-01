@@ -1,46 +1,72 @@
-# Getting Started with Create React App
+# Factorial - Growth Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+
+The challenge is to build a Frontend + Backend application that allows to post and visualize metrics in a usable way.
+
+Each metric have a timestamp, name, and value.
+
+The metrics will be shown in a timeline and show averages per minute/hour/day and persisted in the database.
+
+## Preview
+
+![](demo.gif)
+
+<img src="print.png" />
 
 ## Available Scripts
 
+**Before running this repo make sure the [backend](https://github.com/thsvr/challenge-backend-growth) is alrealy running.**
+
 In the project directory, you can run:
+
+### `npm i`
+
+Install the project packages.
 
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
-### `npm run build`
+### `npm lint`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Shows prettier and eslint warnings and errors.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm lint:fix`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Fix prettier and eslint warnings and errors when possible.
 
-### `npm run eject`
+## Technologies
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Typescript
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+React - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[Styled-components](https://styled-components.com/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+[Jest Styled Component](https://github.com/styled-components/jest-styled-components)
 
-## Learn More
+[Recharts](https://recharts.org/en-US/examples/SimpleBarChart)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[React DateTime Picker](https://www.npmjs.com/package/react-datetime-pickerS)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Fontawesome](https://fontawesome.com/v5/docs/web/use-with/react)
+
+[Husky pre-commit](https://www.npmjs.com/package/husky)
+
+</br>
+
+</br>
+
+### Author
+
+👤 _Thaís Vieira_
+
+[Github: @thsvr](https://github.com/thsvr)
+
+[Thais' LinkedIn](https://www.linkedin.com/in/vr-ths-zd/)
