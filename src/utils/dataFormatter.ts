@@ -1,7 +1,8 @@
+import { Data, GroupedData } from '../types/types';
 import { dateFormatted } from './dateFormatter';
 
-export const dataFormatter = (data: any, type: string) => {
-    const groups = data.reduce((groups: any, metric: any) => {
+export const dataFormatter = (data: Data[], type: string) => {
+    const groups = data.reduce((groups: any, metric: Data) => {
         const date = dateFormatted(metric.timestamp, type);
         if (!groups[date]) {
             groups[date] = [];
@@ -17,13 +18,13 @@ export const dataFormatter = (data: any, type: string) => {
         };
     });
 
-    const dataFormatted = groupArrays.map((group: any) => {
+    const dataFormatted = groupArrays.map((group: GroupedData) => {
         let sumClick = 0;
         let sumViews = 0;
         let viewsLength = 0;
         let clicksLength = 0;
 
-        group.metrics.map((item: any) => {
+        group.metrics.map((item: Data) => {
             if (item.name === 'Clicks') {
                 sumClick += item.value;
             }
@@ -31,8 +32,8 @@ export const dataFormatter = (data: any, type: string) => {
                 sumViews += item.value;
             }
 
-            viewsLength = group.metrics.filter((item: any) => item.name === 'Views').length;
-            clicksLength = group.metrics.filter((item: any) => item.name === 'Clicks').length;
+            viewsLength = group.metrics.filter((item: Data) => item.name === 'Views').length;
+            clicksLength = group.metrics.filter((item: Data) => item.name === 'Clicks').length;
         });
 
         return {

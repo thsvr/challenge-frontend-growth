@@ -13,7 +13,7 @@ interface InputProps {
     min?: string;
     max?: string;
     id: string;
-    onChange: any;
+    onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
     checked?: boolean;
     placeholder?: string;
     required?: boolean;

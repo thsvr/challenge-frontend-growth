@@ -6,6 +6,7 @@ import Graph from '../components/graph';
 import { BASE_URL } from '../constants/Constants';
 import { StyledContainer, StyledText } from '../globalStyles/GlobalStyles';
 import { useFetch } from '../hooks/useFetch';
+import { DefaultData } from '../types/types';
 import { dataFormatter } from '../utils/dataFormatter';
 
 const Container = styled.div`
@@ -32,11 +33,15 @@ const ButtonsContainer = styled.div`
 
 function Homepage() {
     const { response, loading, error } = useFetch(BASE_URL);
-    const data = response && dataFormatter(response, 'day');
-    const [groupedData, setGroupedData] = useState<any[]>(data);
+    const [dateType, setDateType] = useState<string>('day');
+    const data = response && dataFormatter(response, dateType);
+    const [groupedData, setGroupedData] = useState<DefaultData[]>();
 
     const handleGroupedData = (type: string) => {
-        setGroupedData(dataFormatter(response, type));
+        setDateType(type);
+        if (response !== undefined) {
+            setGroupedData(dataFormatter(response, type));
+        }
     };
 
     return (
@@ -60,12 +65,14 @@ function Homepage() {
                             <Button onClick={() => handleGroupedData('day')} text="Day" />
                         </ButtonsContainer>
 
-                        <Graph
-                            data={groupedData || data}
-                            dataKeyXAxis="date"
-                            dataKeyOne="clicks"
-                            dataKeyTwo="views"
-                        />
+                        {data !== undefined && (
+                            <Graph
+                                data={groupedData ? groupedData : data}
+                                dataKeyXAxis="date"
+                                dataKeyOne="clicks"
+                                dataKeyTwo="views"
+                            />
+                        )}
                     </>
                 )}
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import DateTimePicker from 'react-datetime-picker';
 import styled from 'styled-components';
 import { BASE_URL } from '../../constants/Constants';
@@ -61,7 +61,9 @@ const Form = () => {
                             type="radio"
                             value="Views"
                             checked={metricName === 'Views' ? true : false}
-                            onChange={(event: any) => setMetricName(event.target.value)}
+                            onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                                setMetricName(event.target.value)
+                            }
                             data-testid="input"
                         />
                         <Label htmlFor="view" text="View" />
@@ -73,7 +75,9 @@ const Form = () => {
                             type="radio"
                             value="Clicks"
                             checked={metricName === 'Clicks' ? true : false}
-                            onChange={(event: any) => setMetricName(event.target.value)}
+                            onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                                setMetricName(event.target.value)
+                            }
                         />
                         <Label htmlFor="click" text="Click" />
                     </InputWrapper>
@@ -96,7 +100,9 @@ const Form = () => {
                         min="0"
                         max="100"
                         value={metricValue}
-                        onChange={(event: any) => setMetricValue(event.target.value)}
+                        onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                            setMetricValue(+event.target.value)
+                        }
                         placeholder="0 - 100"
                         required
                     />

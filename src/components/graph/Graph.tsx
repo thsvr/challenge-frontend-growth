@@ -1,8 +1,9 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { DefaultData } from '../../types/types';
 
 interface GraphProps {
-    data: any[];
+    data: DefaultData[];
     dataKeyXAxis: string;
     dataKeyOne: string;
     dataKeyTwo: string;
@@ -17,8 +18,8 @@ const Graph = ({ data, dataKeyXAxis, dataKeyOne, dataKeyTwo }: GraphProps) => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey={dataKeyOne} fill="#03045e" />
-                <Bar dataKey={dataKeyTwo} fill="#1b263b" />
+                <Bar dataKey={dataKeyOne} fill="#457b9d" />
+                <Bar dataKey={dataKeyTwo} fill="#00b4d8" />
             </BarChart>
         </div>
     );
