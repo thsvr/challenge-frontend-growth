@@ -26,8 +26,8 @@ const Input = ({
     id,
     min,
     max,
-    checked = undefined,
-    placeholder = undefined,
+    checked = false,
+    placeholder,
     required = false,
 }: InputProps) => {
     return (

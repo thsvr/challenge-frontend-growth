@@ -62,6 +62,7 @@ const Form = () => {
                             value="Views"
                             checked={metricName === 'Views' ? true : false}
                             onChange={(event: any) => setMetricName(event.target.value)}
+                            data-testid="input"
                         />
                         <Label htmlFor="view" text="View" />
                     </InputWrapper>
@@ -71,7 +72,7 @@ const Form = () => {
                             id="click"
                             type="radio"
                             value="Clicks"
-                            checked={metricName === 'Clicks'}
+                            checked={metricName === 'Clicks' ? true : false}
                             onChange={(event: any) => setMetricName(event.target.value)}
                         />
                         <Label htmlFor="click" text="Click" />
