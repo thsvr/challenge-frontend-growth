@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DateTimePicker from 'react-datetime-picker';
 import styled from 'styled-components';
+import { BASE_URL } from '../../constants/Constants';
 import { sendPostRequest } from '../../utils/sendPostRequest';
 import Button from '../button/Button';
 import Input from '../input';
@@ -36,11 +37,11 @@ const ButtonContainer = styled.div`
 
 const Form = () => {
     const [metricValue, setMetricValue] = useState(0);
-    const [metricName, setMetricName] = useState('view');
+    const [metricName, setMetricName] = useState('Views');
     const [data, setData] = useState(new Date());
 
     const handleSubmit = () => {
-        sendPostRequest('http://localhost:3000/api/v1/metrics', {
+        sendPostRequest(BASE_URL, {
             value: metricValue,
             name: metricName,
             timestamp: data,
@@ -58,8 +59,8 @@ const Form = () => {
                         <Input
                             id="view"
                             type="radio"
-                            value="view"
-                            checked={metricName === 'view' ? true : false}
+                            value="Views"
+                            checked={metricName === 'Views' ? true : false}
                             onChange={(event: any) => setMetricName(event.target.value)}
                         />
                         <Label htmlFor="view" text="View" />
@@ -69,8 +70,8 @@ const Form = () => {
                         <Input
                             id="click"
                             type="radio"
-                            value="click"
-                            checked={metricName === 'click'}
+                            value="Clicks"
+                            checked={metricName === 'Clicks'}
                             onChange={(event: any) => setMetricName(event.target.value)}
                         />
                         <Label htmlFor="click" text="Click" />

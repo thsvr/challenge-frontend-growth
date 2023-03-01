@@ -11,7 +11,7 @@ interface GraphProps {
 const Graph = ({ data, dataKeyXAxis, dataKeyOne, dataKeyTwo }: GraphProps) => {
     return (
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <BarChart width={1000} height={500} data={data}>
+            <BarChart width={600} height={500} data={data}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey={dataKeyXAxis} />
                 <YAxis />

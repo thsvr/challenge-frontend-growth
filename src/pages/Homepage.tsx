@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import Button from '../components/button';
 import Form from '../components/form';
 import Graph from '../components/graph';
+import { BASE_URL } from '../constants/Constants';
 import { StyledContainer, StyledText } from '../globalStyles/GlobalStyles';
 import { useFetch } from '../hooks/useFetch';
 import { dataFormatter } from '../utils/dataFormatter';
@@ -19,10 +21,24 @@ const Header = styled.h1`
     padding: 10px 0;
 `;
 
+const ButtonsContainer = styled.div`
+    display: flex;
+    justify-content: space-around;
+    margin: auto auto 30px auto;
+    padding: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+`;
+
 function Homepage() {
-    const { response, loading, error } = useFetch('http://localhost:3000/api/v1/metrics');
-    const defaultData = response && dataFormatter(response, 'day');
-    console.log('data formatted:', defaultData);
+    const { response, loading, error } = useFetch(BASE_URL);
+    const data = response && dataFormatter(response, 'day');
+    const [groupedData, setGroupedData] = useState<any[]>(data);
+
+    const handleGroupedData = (type: string) => {
+        setGroupedData(dataFormatter(response, type));
+    };
+
     return (
         <Container>
             <Header>Metric Dashboard</Header>
@@ -38,8 +54,14 @@ function Homepage() {
                             Check the metrics by choosing one of the following parameters
                         </StyledText>
 
+                        <ButtonsContainer>
+                            <Button onClick={() => handleGroupedData('minute')} text="Minute" />
+                            <Button onClick={() => handleGroupedData('hour')} text="Hour" />
+                            <Button onClick={() => handleGroupedData('day')} text="Day" />
+                        </ButtonsContainer>
+
                         <Graph
-                            data={defaultData}
+                            data={groupedData || data}
                             dataKeyXAxis="date"
                             dataKeyOne="clicks"
                             dataKeyTwo="views"
