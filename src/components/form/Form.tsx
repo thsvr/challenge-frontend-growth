@@ -12,21 +12,34 @@ const StyledForm = styled.form`
     flex-direction: column;
     border-radius: 3px;
     padding: 10px;
+
+    @media (max-width: 768px) {
+        align-items: center;
+    }
 `;
 
 const InputContainer = styled.div`
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 interface InputWrapperProps {
     flexDirection: 'row' | 'rowReverse' | 'column' | 'columnReverse' | 'initial' | 'inherit';
+    marginBottom?: string;
 }
 
 const InputWrapper = styled.div<InputWrapperProps>`
     display: flex;
     align-items: baseline;
     flex-direction: ${(props) => props.flexDirection};
+
+    @media (max-width: 768px) {
+        margin-bottom: ${(props) => props.marginBottom};
+    }
 `;
 
 const ButtonContainer = styled.div`
@@ -53,7 +66,7 @@ const Form = () => {
     return (
         <StyledForm role="form">
             <InputContainer>
-                <InputWrapper flexDirection="column">
+                <InputWrapper flexDirection="column" marginBottom="10px">
                     <Label htmlFor="options" text="Metric" margin=" 0 0 10px 0" />
                     <InputWrapper flexDirection="row">
                         <Input
@@ -83,7 +96,7 @@ const Form = () => {
                     </InputWrapper>
                 </InputWrapper>
 
-                <InputWrapper flexDirection="column">
+                <InputWrapper flexDirection="column" marginBottom="15px">
                     <Label htmlFor="chart" text="Choose a day with time" margin=" 0 0 10px 0" />
                     <DateTimePicker onChange={setData} value={data} />
                 </InputWrapper>
