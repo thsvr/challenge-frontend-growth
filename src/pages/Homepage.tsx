@@ -8,10 +8,17 @@ import { StyledContainer, StyledText } from '../globalStyles/GlobalStyles';
 import { useFetch } from '../hooks/useFetch';
 import { DefaultData } from '../types/types';
 import { dataFormatter } from '../utils/dataFormatter';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChartColumn, faSpinner, faBug } from '@fortawesome/free-solid-svg-icons';
 
 const Container = styled.div`
     background: #f5f5f5;
     padding: 40px;
+`;
+
+const HeaderContainer = styled.div`
+    display: flex;
+    align-items: center;
 `;
 
 const Header = styled.h1`
@@ -19,7 +26,7 @@ const Header = styled.h1`
     justify-content: center;
     align-items: center;
     color: #4a4e69;
-    padding: 10px 0;
+    padding: 10px 0 10px 10px;
 `;
 
 const ButtonsContainer = styled.div`
@@ -46,7 +53,11 @@ function Homepage() {
 
     return (
         <Container>
-            <Header>Metric Dashboard</Header>
+            <HeaderContainer>
+                <FontAwesomeIcon icon={faChartColumn} size="lg" color="#4a4e69" />
+                <Header>Metric Dashboard</Header>
+            </HeaderContainer>
+
             <StyledContainer margin="0 0 20px 0">
                 <StyledText>Include the amount of views or clicks below</StyledText>
                 <Form />
@@ -76,8 +87,10 @@ function Homepage() {
                     </>
                 )}
 
-                {error && <p>Error...</p>}
-                {loading && <p>Loading...</p>}
+                {error && <FontAwesomeIcon icon={faBug} spinPulse size="6x" color="#4a4e69" />}
+                {loading && (
+                    <FontAwesomeIcon icon={faSpinner} spinPulse size="6x" color="#4a4e69" />
+                )}
             </StyledContainer>
         </Container>
     );
